@@ -1,3 +1,57 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.btn-indigo {
+    @apply px-6 py-3 rounded bg-indigo-500 text-white text-sm leading-4 font-bold whitespace-nowrap;
+}
+
+.form-label {
+    @apply mb-2 block text-gray-700 select-none;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    @apply p-2 leading-normal block w-full border text-gray-700 bg-white font-sans rounded text-left appearance-none relative focus:border-indigo-400 focus:ring;
+
+&::placeholder {
+     @apply text-gray-500 opacity-100;
+ }
+}
+
+.form-input.error,
+.form-textarea.error,
+.form-select.error {
+    @apply border-red-500 focus:ring focus:ring-red-200;
+}
+
+.form-error {
+    @apply text-red-700 mt-2 text-sm;
+}
+
+
+/* Style the breadcrumb */
+ul.breadcrumb {
+    @apply font-semibold text-2xl text-gray-800 leading-tight;
+    list-style: none;
+}
+ul.breadcrumb li {
+    display: inline;
+}
+ul.breadcrumb li+li:before {
+    @apply text-black pl-3 pr-1;
+    content: "/\00a0";
+}
+/*
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+*/
+/* End style the breadcrumb */
