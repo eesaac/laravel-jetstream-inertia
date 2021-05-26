@@ -53,17 +53,12 @@
                             </div>
                         </div>
                         <div class="px-8 pb-8 flex justify-between">
-                            <button class="text-red-600 hover:underline" tabindex="-1" type="button" @click="destroy">Delete Post</button>
-                            <button type="submit"  class="btn-indigo">
+                            <button v-if="can.delete_user" class="text-red-600 hover:underline" tabindex="-1" type="button" @click="destroy">Delete Post</button>
+                            <button v-if="can.update_user" type="submit"  class="btn-indigo">
                                 Update Post
                             </button>
                         </div>
                     </form>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -83,7 +78,7 @@ export default {
     props: {
         post: Object,
         tags: Object,
-
+        can: Array,
     },
     data() {
         return {

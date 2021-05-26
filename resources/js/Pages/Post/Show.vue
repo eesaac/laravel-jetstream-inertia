@@ -14,8 +14,7 @@
 
                     <inertia-link :href="`${route('post.index')}?tag=${tag.name}`" v-if="post.tags" v-for="tag in post.tags" class="mr-2 inline-block uppercase text-blue-600">#{{ tag.name }}</inertia-link>
 
-
-                    <div class="mt-10">
+                    <div class="mt-10" v-if="can.update_user">
                         <inertia-link :href="route('post.edit', post.id)" class="btn-indigo">Edit</inertia-link>
                     </div>
                 </div>
@@ -34,6 +33,7 @@ export default {
     },
     props: {
         post: Object,
+        can: Array,
     },
 }
 </script>

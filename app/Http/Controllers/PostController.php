@@ -27,8 +27,7 @@ class PostController extends Controller
                 ->filter(\Illuminate\Support\Facades\Request::only('search'))
                 ->paginate();
 
-                $posts->appends(['tag' => \request('tag')])
-                ->links();
+            $posts->appends(['tag' => \request('tag')])->links();
         }else{
 //            $posts = Post::with('tags')->latest()->get();
             $posts = Post::with('tags')
@@ -37,10 +36,11 @@ class PostController extends Controller
                 ->paginate();
         }
 
-
+        if(\request('search'))
+            $posts->appends(['search' => \request('search')])->links();
 
         return Inertia::render('Post/Index', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
@@ -91,7 +91,10 @@ class PostController extends Controller
     {
         return Inertia::render('Post/Show', [
             'post' => $post,
-            'tags' => $post->tags
+            'tags' => $post->tags,
+            'can' => [
+                'update_user' => auth()->user()->can('update', $post)
+            ]
         ]);
     }
 
@@ -107,7 +110,11 @@ class PostController extends Controller
 
         return Inertia::render('Post/Edit', [
             'post' => $post,
-            'tags' => $tags
+            'tags' => $tags,
+            'can' => [
+                'update_user' => auth()->user()->can('update', $post),
+                'delete_user' => auth()->user()->can('delete', $post)
+            ]
         ]);
     }
 

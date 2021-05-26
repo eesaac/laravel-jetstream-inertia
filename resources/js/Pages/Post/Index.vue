@@ -7,14 +7,14 @@
                 <div class="bg-white rounded-md shadow overflow-x-auto">
                     <Flash-Messages />
 
-                    <div class="flex flex-wrap items-center justify-start m-2">
-                        <div class="w-auto shadow rounded">
+                    <div class="flex flex-wrap items-center justify-start p-2 border-b">
+                        <div class="flex-grow w-auto shadow rounded">
                             <input v-model="form.search"
-                                   class="flex-grow relative w-full px-6 py-3 rounded-l focus:ring"
+                                   class="relative w-full px-6 py-3 rounded-l focus:ring"
                                    autocomplete="off"
                                    type="text"
                                    name="search"
-                                   placeholder="Search…"
+                                   placeholder="Search"
                             />
                         </div>
                         <button class="rounded-l-none rounded-r ml-0.5 py-3 px-5 bg-indigo-500 text-lg font-semibold text-white hover:text-gray-700 hover:bg-indigo-200" type="button" @click="reset">Reset</button>

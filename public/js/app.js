@@ -17999,7 +17999,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     post: Object,
-    tags: Object
+    tags: Object,
+    can: Array
   },
   data: function data() {
     return {
@@ -18141,7 +18142,8 @@ __webpack_require__.r(__webpack_exports__);
     Header: _Shared_Header__WEBPACK_IMPORTED_MODULE_1__.default
   },
   props: {
-    post: Object
+    post: Object,
+    can: Array
   }
 });
 
@@ -22343,14 +22345,11 @@ var _hoisted_16 = {
 var _hoisted_17 = {
   "class": "px-8 pb-8 flex justify-between"
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+var _hoisted_18 = {
+  key: 1,
   type: "submit",
   "class": "btn-indigo"
-}, " Update Post ", -1
-/* HOISTED */
-);
-
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
 
@@ -22422,14 +22421,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.body]]), $data.form.errors.body ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.form.errors.body), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [$props.can.delete_user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("button", {
+    key: 0,
     "class": "text-red-600 hover:underline",
     tabindex: "-1",
     type: "button",
     onClick: _cache[6] || (_cache[6] = function () {
       return $options.destroy && $options.destroy.apply($options, arguments);
     })
-  }, "Delete Post"), _hoisted_18])], 32
+  }, "Delete Post")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.can.update_user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("button", _hoisted_18, " Update Post ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 32
   /* HYDRATE_EVENTS */
   )])])])]);
 }
@@ -22459,10 +22459,10 @@ var _hoisted_3 = {
   "class": "bg-white rounded-md shadow overflow-x-auto"
 };
 var _hoisted_4 = {
-  "class": "flex flex-wrap items-center justify-start m-2"
+  "class": "flex flex-wrap items-center justify-start p-2 border-b"
 };
 var _hoisted_5 = {
-  "class": "w-auto shadow rounded"
+  "class": "flex-grow w-auto shadow rounded"
 };
 var _hoisted_6 = {
   "class": "w-full whitespace-nowrap"
@@ -22517,11 +22517,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.form.search = $event;
     }),
-    "class": "flex-grow relative w-full px-6 py-3 rounded-l focus:ring",
+    "class": "relative w-full px-6 py-3 rounded-l focus:ring",
     autocomplete: "off",
     type: "text",
     name: "search",
-    placeholder: "Search…"
+    placeholder: "Search"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.search]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
@@ -22608,6 +22608,7 @@ var _hoisted_5 = {
   "class": "mb-3 whitespace-pre-wrap"
 };
 var _hoisted_6 = {
+  key: 1,
   "class": "mt-10"
 };
 
@@ -22649,7 +22650,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["href"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.can.update_user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.route('post.edit', $props.post.id),
     "class": "btn-indigo"
   }, {
@@ -22661,7 +22662,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])])])])]);
+  , ["href"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]);
 }
 
 /***/ }),

@@ -32,6 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
 
+
+
     Route::get('post', [PostController::class, 'index'])
         ->name('post.index')
         ->middleware('remember');
@@ -41,12 +43,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         ->name('post.store');
     Route::get('post/{post}', [PostController::class, 'show'])
         ->name('post.show');
-    Route::get('post/{post}/edit', [PostController::class, 'edit'])
-        ->name('post.edit');
-    Route::put('post/{post}', [PostController::class, 'update'])
-        ->name('post.update');
+
+    Route::middleware('can:update,post')->group(function (){
+        Route::get('post/{post}/edit', [PostController::class, 'edit'])
+            ->name('post.edit');
+        Route::put('post/{post}', [PostController::class, 'update'])
+            ->name('post.update');
+    });
+
     Route::delete('post/{post}', [PostController::class, 'destroy'])
-        ->name('post.destroy');
+        ->name('post.destroy')
+        ->middleware('can:delete,post');
 
 });
 
